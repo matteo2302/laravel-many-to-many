@@ -58,7 +58,22 @@
                             </div>
                         </div>
                     </div>
+                    <h6>Tecnologie</h6>
+                    <div class="col-10 d-flex">
+                        @foreach ($tecnologies as $tecnology)
+                            <div class="mb-3">
+                                <div class="form-check form-check-inline my-3">
 
+                                    <input class="form-check-input"
+                                        type="checkbox"@if (in_array($tecnology->id, old('tecnologies', $project_tecnology_ids ?? []))) cheched @endif name="tecnologies[]"
+                                        id="tecnology-{{ $tecnology->id }}" value="{{ $tecnology->id }}">
+                                    <label class="form-check-label" for="tecnology-{{ $tecnology->id }}">
+                                        {{ $tecnology->label }}
+                                    </label>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-4">

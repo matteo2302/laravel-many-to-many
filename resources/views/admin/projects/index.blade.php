@@ -16,6 +16,7 @@
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Categoria</th>
+                    <th scope="col">Tecnologie</th>
                     <th scope="col">Data</th>
                     <th scope="col">ultimo aggiornamento</th>
                     <th scope="col"></th>
@@ -32,6 +33,12 @@
                             @else
                                 -
                             @endif
+                        </td>
+                        <td width="200">
+                            @forelse($project->tecnologies as $tecnology)
+                                <span class="badge"
+                                    style="background-color:{{ $tecnology->color }} me-2">{{ $tecnology->label }}</span>
+
                         </td>
                         <td>{{ $project->date }}</td>
                         <td>{{ $project->last_update }}</td>
